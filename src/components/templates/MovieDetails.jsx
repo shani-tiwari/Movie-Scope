@@ -1,4 +1,3 @@
-import React from 'react'
 import { useEffect } from 'react'
 import { asyncLoadMovies, removeMovie } from '../app/actions/movieActions'
 import { useDispatch, useSelector } from 'react-redux'
