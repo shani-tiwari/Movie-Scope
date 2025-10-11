@@ -7,11 +7,12 @@ function VerticalCards({data, title}) {
     // console.log(title);
 
   return (
-    <div className='flex flex-wrap gap-6 mt-16 '>
+    <div className='flex flex-wrap justify-center gap-4 md:gap-6 mt-16 lg:px-4'>
         {
             data.map( (card, idx) =>
 
-                <Link to={`/${card.media_type || title }/details/${card.id}`}  key={idx} className='relative flex flex-col justify-end  w-[32vh] rounded p-2 duration-300 hover:shadow-[8px_17px_32px_2px_rgba(0,0,0,.5)] hover:scale-105 mb-4 bg-slate-900 text-center border-b-2 border-t-2 ' >
+                <Link to={`/${card.media_type || title }/details/${card.id}`}  key={idx} 
+                 className='relative flex flex-col w-[30vh]  sm:min-w-[36vh] lg:min-w-[35vh] rounded px-1 duration-300 hover:shadow-[8px_17px_32px_2px_rgba(0,0,0,.5)] hover:scale-105 mb-4 bg-slate-900 text-center border-b-2 border-t-2 ' >
 
                     <img 
                      src={`https://image.tmdb.org/t/p/original/${ card.poster_path || card.backdrop_path || card.profile_path }`} 
@@ -22,10 +23,12 @@ function VerticalCards({data, title}) {
                      <div className='my-auto'>
                         <span className='text-xl text-zinc-200 font-semibold z-20 '>
                             {
-                                card.name || card.title || card.original_title ||  card.original_name
+                               ( card.name || card.title || card.original_title ||  card.original_name).slice(0, 15)
                             }
                         </span>
                      </div>
+                     
+
 
                      {
                         card.vote_average ? 
@@ -35,8 +38,6 @@ function VerticalCards({data, title}) {
                             :
                         null
                      }
-
-
                 </Link>
             )
         }
