@@ -29,40 +29,41 @@ function TopNav() {
   
 
   return (
-        <div className='w-[50%] h-[10vh] relative flex items-center mx-auto z-50'>
+        <div className='absolute top-2 left-[40%] bg-blend-saturation w-[50%] h-[7vh]  flex items-center mx-auto z-50 rounded-full backdrop-blur-sm shadow-md shadow-gray-600 '>
 
-            <i className="ri-search-line text-3xl text-zinc-400 cursor-pointer "></i>
+            <i className="ri-search-line text-xl md:text-3xl text-zinc-400 cursor-pointer ml-3 "></i>
             <input 
               onChange={ (e) => setQuery(e.target.value) }
               value={query}
               type="text" placeholder='Search Movies, Shows...' id='1' name='search-field'
-              className='w-[50%] mx-10 p-5 rounded text-xl text-zinc-100 outline-none border-none bg-transparent selection:bg-transparent ' 
-            />
+              className='w-[50%] mx-10 py-1  rounded text-xl text-zinc-100 outline-none border-none  bg-transparent selection:bg-transparent ' 
+            /> 
+            
 
             {
               query.length > 0 &&  
               <i 
                onClick={ () => setQuery("")}
-               className =" text-3xl text-zinc-400 ri-close-large-fill cursor-pointer">
+               className =" text-xl md:text-3xl mr-3 text-zinc-400 ri-close-large-fill cursor-pointer  bg-transparent selection:bg-transparent">
               </i>
             }
 
-            <div className=' absolute max-h-[50vh] bg-zinc-200 top-[90%] left-[6%] rounded-lg overflow-auto '>
+            <div className=' absolute max-h-[50vh] bg-[#100d24] top-[90%] left-[6%] rounded-lg overflow-auto '>
 
                   { searchs.map( (item, idx) => (              
                       <Link 
                         to={`/${item.media_type}/details/${item.id}`} 
                         key={idx} 
-                        className='w-[100%] p-6 flex  justify-start items-center border-b-2 border-zinc-100 text-zinc-600 font-semibold hover:text-zinc-900 hover:bg-zinc-300 duration-300 hover:text-xl '>
+                        className='w-[100%] p-2 flex  justify-start items-center border-b-[1px] border-zinc-100 text-zinc-600 font-semibold hover:text-zinc-900 hover:bg-zinc-700 duration-300 hover:text-lg '>
 
                           <img src={
                               item.backdrop_path || 
                                 item.profile_path ? `https://image.tmdb.org/t/p/original/${item.backdrop_path || item.profile_path}` : noImage
                             } 
-                            className='w-[20vh] h-[12vh] object-cover mr-5 rounded-lg shadow-lg ' 
+                            className='w-full h-[15vh] md:w-[20vh] md:h-[12vh] object-cover md:mr-5 rounded-lg shadow-lg ' 
                             alt="Loading......" />
 
-                          <span> { item.name || item.title || item.original_title ||  item.original_name} </span>
+                          <span className='hidden text-white md:inline-block'> { item.name || item.title || item.original_title ||  item.original_name} </span>
 
                       </Link>             
                     ))
