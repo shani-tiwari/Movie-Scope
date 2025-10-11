@@ -71,7 +71,7 @@ function Popular() {
     (
       <div className='w-screen p-[2%] select-none flex flex-col items-center '>
 
-          <div className='w-[90%]  fixed z-50 flex justify-between rounded-full backdrop-blur-sm shadow-md shadow-slate-500 px-4 py-2 '>
+          <div className='w-[90%]  fixed z-50 flex justify-between items-center rounded-full backdrop-blur-sm shadow-md shadow-slate-500 px-4 py-1 '>
 
               <h1 className='text-xl md:text-3xl text-zinc-300   '>
                   <i 
@@ -81,7 +81,7 @@ function Popular() {
                   Popular 
               </h1>
 
-              <div className=' w-[70%] flex justify-end mr-4 ' >
+              <div className=' w-[60%]  flex justify-end ' >
 
                   <DropDown title={category} options={["movie", "tv"]} 
                    func={ (e)=> setCategory(e.target.value)}
