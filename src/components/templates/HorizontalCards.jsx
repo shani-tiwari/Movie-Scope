@@ -10,7 +10,8 @@ function HorizontalCards( {data} ) {
                 data.length > 0 ? 
                     data.map( (card, idx) => (
 
-                            <Link to={`/${card.media_type}/details/${card.id}`} key={idx} className='min-w-[50%] md:min-w-[17%] h-[40vh] mr-3 bg-zinc-900 mb-5 overflow-hidden p-1 rounded'>
+                            <Link to={`/${card.media_type}/details/${card.id}`} key={idx} 
+                             className='min-w-[60%] md:min-w-[30%] h-[40vh] mr-3 bg-zinc-900 mb-5 overflow-hidden p-1 rounded-md'>
 
                                 <img 
                                   src={

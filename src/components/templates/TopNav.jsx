@@ -29,9 +29,9 @@ function TopNav() {
   
 
   return (
-        <div className='absolute top-2 left-[40%] bg-blend-saturation w-[50%] h-[7vh]  flex items-center mx-auto z-50 rounded-full backdrop-blur-sm shadow-md shadow-gray-600 '>
+        <div className='absolute top-2 left-[40%] bg-blend-saturation w-[50%] h-[7vh]  flex items-center mx-auto z-50 rounded-full backdrop-blur-sm shadow-md shadow-gray-700 '>
 
-            <i className="ri-search-line text-xl md:text-3xl text-zinc-400 cursor-pointer ml-3 "></i>
+            <i className="ri-search-line text-xl z-100 md:text-3xl text-zinc-400 cursor-pointer ml-3 "></i>
             <input 
               onChange={ (e) => setQuery(e.target.value) }
               value={query}
