@@ -57,7 +57,7 @@ function Home() {
     <>
         <SideNav/>
 
-        <div className='w-[82%] h-full bg-slate-950 overflow-y-auto overflow-x-hidden select-none'> 
+        <div className='w-full md:w-[82%] h-full bg-slate-950 overflow-y-auto overflow-x-hidden select-none'> 
             <TopNav/>
 
             <Header data={wallpaper} />
