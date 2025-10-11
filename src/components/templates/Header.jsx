@@ -16,16 +16,16 @@ export default function Header({data}) {  // (props) -> props.data -> {data}
            className="w-full h-[60vh] flex flex-col justify-end p-[3%] items-start gap-2 "  // is -> link take only required width 
         >
 
-            <h1 className=" w-[80%] text-5xl font-bold text-zinc-300 ">
+            <h1 className=" w-[80%] text-3xl md:text-5xl font-bold text-zinc-300 ">
                 { data.name || data.title || data.original_title ||  data.original_name}
             </h1>
 
-            <p className="max-sm:hidden md:text-zinc-500 w-[60%]  ">
+            <p className="max-sm:hidden md:text-zinc-400 w-[60%]  ">
                 { data.overview.slice(0, 100) }...
                 <Link to={`/${data.media_type}/details/${data.id}`}  className="text-blue-400" >more</Link>
             </p>
 
-            <p className="text-zinc-200 text-lg ">
+            <p className="text-zinc-200 text-sm md:text-lg ">
                 { 
                     data.media_type ?  (
                         <span>
@@ -44,7 +44,7 @@ export default function Header({data}) {  // (props) -> props.data -> {data}
             </p>
 
             <Link to={`/${data.media_type}/details/${data.id}`}
-             className="p-3 bg-[rgb(54,45,115)] text-lg tracking-widest rounded-xl text-zinc-100 hover:bg-[#362c86] hover:text-white hover:scale-105 duration-300 "> 
+             className=" py-2 px-3 md:p-3 bg-[rgb(54,45,115)] text-base md:text-lg tracking-widest rounded-xl text-zinc-100 hover:bg-[#362c86] hover:text-white hover:scale-105 duration-300 "> 
                 Watch Trailer 
             </Link>
 
