@@ -62,8 +62,8 @@ function Home() {
 
             <Header data={wallpaper} />
 
-              <div className='p-5 flex justify-between '>
-                <h1 className='text-3xl text-zinc-300 font-semibold '> Trending </h1>   
+              <div className='p-3 flex justify-between '>
+                <h1 className=' text-2xl md:text-3xl text-zinc-300 font-semibold '> Trending </h1>   
                 <DropDown title="All" func={(e) => setFilterCategory(e.target.value)} options={['all', 'tv', 'movie']} />
               </div>
 

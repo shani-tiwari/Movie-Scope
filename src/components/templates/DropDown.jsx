@@ -4,8 +4,8 @@ import "../../index.css"
 function DropDown({title, options, func}) {
     
   return (
-    <div className='select'>
-        <select defaultValue={0} onChange={func} name="format" id="format">
+    <div className='select max-w-[20%]  md:w-[20%] md:px-3'>
+        <select className=' px-4' defaultValue={0} onChange={func} name="format" id="format">
             <option value="0" disabled>
                 {title}
             </option>
