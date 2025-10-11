@@ -68,32 +68,28 @@ function Trending() {
 
   return trending.length > 0 ? 
         (
-            <div className='w-screen p-[2%] select-none '>
+            <div className='w-screen p-[2%] select-none  '>
 
-                <div className='w-[60%] flex justify-between rounded-full px-5 py-2 shadow-md shadow-slate-600 bg-slate-900'>
+                <div className='w-full z-50 fixed flex  justify-between rounded-full px-5 py-2 shadow-md shadow-slate-600 backdrop-blur-sm'>
 
                     {/* <Link onClick={()=> navigate(-1)}></Link> */}
-                    <h1 className='w-fit text-3xl text-zinc-300 font-semibold   '>
+                    <h1 className='w-fit flex text-xl md:text-3xl text-zinc-300 font-semibold   '>
                         <i 
                          onClick={()=> navigate(-1)}
-                         className=" text-zinc-300 text-3xl hover:text-[#6556CD] duration-300 ri-arrow-left-circle-line mr-4 shadow-white ">                    
+                         className=" text-zinc-300 text-xl md:text-3xl hover:text-[#6556CD] duration-300 ri-arrow-left-circle-line mr-4 mt-1 shadow-white ">                    
                         </i>
-                        Trending <sup className='text-xs text-zinc-500 '>({category})</sup>
+                        Trending <sup className=' text-xs text-zinc-500 '>({category})</sup>
                     </h1>
 
-                    <div className='flex gap-4 w-[70%] items-center' >
-
-
+                    <div className=' justify-end w-full items-center gap-4 hidden sm:inline-flex' >
                             {/*  array elems should be in lowercase, coz they will add in api to call and filter data */}
-                        <DropDown title={category} options={["all", "movie", "tv"]} 
-                         func={ (e)=> setCategory(e.target.value)}
-                        />
-
-                        {/* <div className='w-[2%]'></div> */}
-
-                        <DropDown title={duration} options={['day', 'week']} 
-                         func={ (e)=> setDuration(e.target.value)}
-                        />
+                            
+                            <DropDown title={category} options={["all", "movie", "tv"]} 
+                            func={ (e)=> setCategory(e.target.value)}
+                            />
+                            <DropDown title={duration} options={['day', 'week']} 
+                            func={ (e)=> setDuration(e.target.value)}
+                            />
                     </div>
 
                 </div>

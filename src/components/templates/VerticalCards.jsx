@@ -7,12 +7,12 @@ function VerticalCards({data, title}) {
     // console.log(title);
 
   return (
-    <div className='flex flex-wrap justify-center gap-4 md:gap-6 mt-16 lg:px-4'>
+    <div className='flex flex-wrap justify-center gap-4 md:gap-6 mt-16 lg:px-4 @container'>
         {
             data.map( (card, idx) =>
 
                 <Link to={`/${card.media_type || title }/details/${card.id}`}  key={idx} 
-                 className='relative flex flex-col w-[30vh]  sm:min-w-[36vh] lg:min-w-[35vh] rounded px-1 duration-300 hover:shadow-[8px_17px_32px_2px_rgba(0,0,0,.5)] hover:scale-105 mb-4 bg-slate-900 text-center border-b-2 border-t-2 ' >
+                 className='relative flex flex-col max-[425px]:w-[80%] w-[30vh] mt-7 sm:min-w-[36vh] lg:min-w-[35vh] rounded px-1 duration-300 hover:shadow-[8px_17px_32px_2px_rgba(0,0,0,.5)] hover:scale-105 mb-4 bg-slate-900 text-center border-b-2 border-t-2 ' >
 
                     <img 
                      src={`https://image.tmdb.org/t/p/original/${ card.poster_path || card.backdrop_path || card.profile_path }`} 
