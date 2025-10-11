@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import TopNav from './TopNav';
 import DropDown from './DropDown';
 import axios from '../../utils/axios';
 import VerticalCards from './VerticalCards';
@@ -21,7 +20,7 @@ function Trending() {
     const [HasMore, setHasMore]   = useState(true)
     
     
-    document.title = `Movies App | Trending Page ${category.toUpperCase()} ` ;
+    document.title = `Tunely | Trending Page ${category.toUpperCase()} ` ;
 
 
     const GetTrendingData = async() =>{
@@ -71,10 +70,10 @@ function Trending() {
         (
             <div className='w-screen p-[2%] select-none '>
 
-                <div className='w-full flex justify-between '>
+                <div className='w-[60%] flex justify-between rounded-full px-5 py-2 shadow-md shadow-slate-600 bg-slate-900'>
 
                     {/* <Link onClick={()=> navigate(-1)}></Link> */}
-                    <h1 className='text-3xl text-zinc-300 font-semibold mt-2 border-b-2 '>
+                    <h1 className='w-fit text-3xl text-zinc-300 font-semibold   '>
                         <i 
                          onClick={()=> navigate(-1)}
                          className=" text-zinc-300 text-3xl hover:text-[#6556CD] duration-300 ri-arrow-left-circle-line mr-4 shadow-white ">                    
@@ -82,16 +81,15 @@ function Trending() {
                         Trending <sup className='text-xs text-zinc-500 '>({category})</sup>
                     </h1>
 
-                    <div className='flex w-[70%] items-center m-0' >
+                    <div className='flex gap-4 w-[70%] items-center' >
 
-                        <TopNav/>
 
                             {/*  array elems should be in lowercase, coz they will add in api to call and filter data */}
                         <DropDown title={category} options={["all", "movie", "tv"]} 
                          func={ (e)=> setCategory(e.target.value)}
                         />
 
-                        <div className='w-[2%]'></div>
+                        {/* <div className='w-[2%]'></div> */}
 
                         <DropDown title={duration} options={['day', 'week']} 
                          func={ (e)=> setDuration(e.target.value)}
