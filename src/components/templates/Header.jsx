@@ -16,12 +16,12 @@ export default function Header({data}) {  // (props) -> props.data -> {data}
            className="w-full h-[60vh] flex flex-col justify-end p-[3%] items-start gap-2 "  // is -> link take only required width 
         >
 
-            <h1 className=" w-[80%] text-5xl font-bold text-zinc-200 ">
+            <h1 className=" w-[80%] text-5xl font-bold text-zinc-300 ">
                 { data.name || data.title || data.original_title ||  data.original_name}
             </h1>
 
-            <p className="text-zinc-400 w-[60%]  ">
-                { data.overview.slice(0, 150) }...
+            <p className="max-sm:hidden md:text-zinc-500 w-[60%]  ">
+                { data.overview.slice(0, 100) }...
                 <Link to={`/${data.media_type}/details/${data.id}`}  className="text-blue-400" >more</Link>
             </p>
 
