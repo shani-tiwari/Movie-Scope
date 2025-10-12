@@ -1,8 +1,17 @@
 import me from "../../public/me.jpg";
+import {Link, useNavigate} from 'react-router-dom'
+
+
 function Connect() {
+    const navigate   = useNavigate();
+
   return (
     <div className="min-h-screen w-screen flex items-center justify-center bg-slate-900 p-4">
-      <div className="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl bg-slate-400 shadow-sm rounded-2xl border-4 border-slate-600 shadow-slate-400 overflow-hidden p-6 flex flex-col items-center sm:flex-row sm:items-center gap-6">
+      <div className="relative max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl bg-slate-400 shadow-sm rounded-2xl border-4 border-slate-600 shadow-slate-400 overflow-hidden p-6 flex flex-col items-center sm:flex-row sm:items-center gap-6">
+        <Link
+          onClick={() => navigate(-1)}
+          className="absolute top-2 left-2 text-xl md:text-3xl hover:text-[#6556CD] duration-300 ri-arrow-left-circle-line shadow-white "
+        ></Link>
         {/* Photo */}
         <div className="flex-shrink-0">
           <img
