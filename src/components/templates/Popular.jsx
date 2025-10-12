@@ -19,7 +19,7 @@ function Popular() {
     const [HasMore, setHasMore]   = useState(true);
     
 
-    document.title = `Movies App | Popular - ${category.toUpperCase()}` ;
+    document.title = `Tunely | Popular - ${category.toUpperCase()}` ;
 
 
     const GetPopularData = async() =>{

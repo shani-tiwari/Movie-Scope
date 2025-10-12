@@ -19,7 +19,7 @@ function Movies() {
     const [HasMore, setHasMore]   = useState(true);
     
 
-    document.title = `Movies App | Movies` ;
+    document.title = `Tunely | Movies` ;
 
 
     const GetMoviesData = async() =>{

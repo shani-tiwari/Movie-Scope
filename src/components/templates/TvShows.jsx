@@ -18,7 +18,7 @@ function TvShows() {
     const [HasMore, setHasMore]   = useState(true);
     
 
-    document.title = `shows | Tv Shows` ;
+    document.title = `Tunely | Tv Shows` ;
 
 
     const GetShowsData = async() =>{

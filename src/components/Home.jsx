@@ -10,7 +10,7 @@ import Loading from './templates/Loading';
 
 function Home() {
 
-    document.title = "Movies App | Home Page" ;
+    document.title = "Tunely | Home Page" ;
 
     const [wallpaper, setWallpaper] = useState(null);
     const [trending, setTrending] = useState(null);

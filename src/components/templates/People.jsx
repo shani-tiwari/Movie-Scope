@@ -13,7 +13,7 @@ function People() {
     const [HasMore, setHasMore]   = useState(true);
     
 
-    document.title = `Tunely | Person ` ;
+    document.title = `Tunely | Person's ` ;
 
 
     const GetPerson = async() => {
