@@ -33,13 +33,13 @@ function MovieDetails() {
                     backgroundPosition: "center",  // center --> "center" 
                     backgroundSize: "cover",
                  }} 
-                 className='relative h-[150vh] w-screen px-[10%]  bg-slate-950 text-zinc-400 object-fill select-none '>
+                 className='relative h-full opacity-[0.9] w-screen px-[5%] md:px-[10%]  bg-slate-950 text-zinc-400 object-fill select-none '>
 
-                    <nav className=' h-[10vh] w-full text-zinc-200 text-xl flex items-center justify-start gap-10 '>
+                    <nav className=' h-[10vh] w-full text-zinc-200 text-xl flex items-center justify-start gap-9 '>
 
                         <Link
                           onClick={()=> navigate(-1)}
-                          className= "text-3xl hover:text-[#6556CD] duration-300 ri-arrow-left-circle-line mr-4 shadow-white ">                    
+                          className= " text-xl md:text-3xl hover:text-[#6556CD] duration-300 ri-arrow-left-circle-line mr-4 shadow-white ">                    
                         </Link>
 
                         <a 
@@ -64,34 +64,34 @@ function MovieDetails() {
                     </nav>
 
 
-                    <div className='w-full flex  '>
+                    <div className='w-full flex max-md:flex-col '>
 
                         <img 
                           alt="loading.." 
                           src={`https://image.tmdb.org/t/p/original/${info.poster_path || info.detail.backdrop_path}`} 
-                          className='h-[50vh] w-[40vh] border-4 object-fill rounded-lg hover:shadow-[8px_17px_32px_2px_`rgba(0,0,0,.5)] z-10 hover:scale-105 duration-300  '
+                          className=' md:block max-md:w-full h-[50vh] w-[40vh] border-2 object-fill rounded-lg hover:shadow-[8px_17px_32px_2px_`rgba(0,0,0,.5)] z-10 hover:scale-105 duration-300  '
                         />
 
 
-                        <div className='content ml-8 text-white '>
+                        <div className='content md:ml-8 text-white '>
 
-                              <h1 className='text-5xl font-bold '> 
+                              <h1 className=' text-2xl md:text-5xl font-bold '> 
                                 { info.detail.title || info.detail.oroginal_name || info.detail.original_title }
 
-                                <small className='text-2xl text-zinc-200 font-bold ' >
+                                <small className=' text-base md:text-2xl text-zinc-200 font-bold ' >
                                     ({info.detail.release_date.split("-")[0]})
                                 </small>
                               </h1>
 
-                              <div className='flex items-center gap-x-5 gap-y-10 mt-3 mb-5  '>
+                              <div className='flex items-center gap-x-5 gap-y-7 md:gap-y-10 mt-3 mb-5  '>
 
-                                    <span className='z-40 text-white text-md overflow-hidden w-[6vh] h-[6vh] flex justify-center items-center bg-yellow-700 rounded-full font-semibold '>
+                                    <span className='z-40 text-white text-md overflow-hidden min-w-[6vh] min-h-[6vh] flex justify-center items-center bg-yellow-700 rounded-full font-semibold '>
                                         { (info.detail.vote_average* 10).toFixed() } <sup>%</sup>
                                     </span>
 
-                                  <h1 className='font-semibold text-2xl w-[60px] leading-6 '> Users Score </h1>
-                                  <h1 className=''> { info.detail.release_date } </h1>
-                                  <h1> { info.detail.genres.map( (g) => g.name ).join(",") } </h1>
+                                  <h1 className='hidden md:block font-semibold text-lg md:text-2xl w-[60px] leading-6 '> Users Score </h1>
+                                  <h4 className=' text-base md:text-2xl '> { info.detail.release_date } </h4>
+                                  <h1> { info.detail.genres.map( (g) => g.name ).join(", ") } </h1>
                                   <h1> { info.detail.runtime} min </h1>
 
                               </div>
@@ -111,12 +111,10 @@ function MovieDetails() {
                                 </p>
                               </h1>
 
-                              <Link className='px-12 py-3 bg-slate-950 rounded-lg border hover:scale-110 duration-300 text-xl ' 
+                              <Link className='px-7 py-2 md:px-12 md:py-3 bg-slate-950 rounded-lg border hover:scale-110 duration-300 text-base md:text-xl ' 
                                 to={`${pathname}/trailer`}>
                                     <i className="ri-play-circle-line"></i> Play Trailer
                               </Link>
-
-
 
                         </div>
 
@@ -124,7 +122,7 @@ function MovieDetails() {
 
 
                     {/* card  */}
-                    <div className=' w-[80%] flex flex-col gap-y-5 font-semibold text-xl'>
+                    <div className=' w-[80%] flex flex-col gap-y-5 font-semibold text-xl mt-4 '>
 
                               {
                                   info.watchProviders && info.watchProviders.flatrate && (
@@ -184,12 +182,8 @@ function MovieDetails() {
 
                   {/* part 4  */}
 
-                  <h1 className='text-3xl font-bold text-white mt-6 mb-3  '> Recommandations & Similar : </h1>
+                  <h1 className=' text-lg md:text-3xl font-bold text-white mt-3 mb-2  '> Recommandations & Similar : </h1>
                   <HorizontalCards data={ info.recommendations.length > 0 ? info.recommendations : info.similar } /> 
-                    {/* {
-                      info.recommendations ? info.recommendations : info.similar
-
-                    } */}
 
 
                    <Outlet />   
