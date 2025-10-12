@@ -44,7 +44,7 @@ export default function Header({data}) {  // (props) -> props.data -> {data}
             </p>
 
             <Link to={`/${data.media_type}/details/${data.id}`}
-             className=" py-2 px-3 md:p-3 bg-[rgb(54,45,115)] text-base md:text-lg tracking-widest rounded-xl text-zinc-100 hover:bg-[#362c86] hover:text-white hover:scale-105 duration-300 "> 
+             className=" py-2 px-3 md:p-3 bg-[rgb(54,45,115)] text-base md:text-lg tracking-widest border-2 border-slate-400 rounded-xl text-zinc-100 hover:bg-[#362c86] hover:text-white hover:scale-105 duration-300 shadow-sm shadow-slate-600 "> 
                 Watch Trailer 
             </Link>
 
