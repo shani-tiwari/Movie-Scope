@@ -71,9 +71,3 @@ select::-ms-expand {
 .select:hover::after {
     color: #6556cd;
 }
-
-/* a:hover {
-    font-size:x-large;
-    transition-duration: 200ms;
-    transition-behavior: ease-in ;
-} */

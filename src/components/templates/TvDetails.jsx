@@ -17,8 +17,6 @@ function tvDetails() {
     const navigate   = useNavigate();
     const { info }   = useSelector( state => state.tv );
 
-    console.log(info);
-    // console.log(id);
 
     useEffect( () => {
         dispatch(asyncLoadtv(id));
@@ -34,7 +32,7 @@ function tvDetails() {
                     backgroundPosition: "center",  // center --> "center" 
                     backgroundSize: "cover",
                  }} 
-                 className='relative h-[200vh] w-screen px-[10%]  bg-slate-950 text-zinc-400 object-cover select-none '>
+                 className='relative h-full w-screen px-4 md:px-[10%]  bg-slate-950 text-zinc-400 object-cover select-none '>
 
                     <nav className=' h-[10vh] w-full text-zinc-200 text-xl flex items-center justify-start gap-10 '>
 
@@ -65,35 +63,34 @@ function tvDetails() {
                     </nav>
  
 
-                    <div className='w-full flex  '>
+                    <div className='w-full flex gap-6 max-md:flex-col max-md:justify-center '>
 
                         <img 
                           alt="loading.." 
                           src={`https://image.tmdb.org/t/p/original/${info.poster_path || info.detail.backdrop_path}`} 
-                          className='h-[50vh] w-[40vh] border-4 object-fill rounded-lg hover:shadow-[8px_17px_32px_2px_`rgba(0,0,0,.5)] z-10 hover:scale-105 duration-300  '
+                          className='w-[80%] h-[50vh] md:h-[50vh] md:min-w-[40vh]  max-md:mx-auto  border-2 object-fill rounded-lg hover:shadow-[8px_17px_32px_2px_`rgba(0,0,0,.5)] z-10 hover:scale-105 duration-300  '
                         />
 
 
-                        <div className='content ml-8 text-white '>
+                        <div className='w-[90%] mx-auto  text-white '>
 
-                              <h1 className='text-5xl font-bold '> 
-                                { info.detail.title || info.detail.oroginal_name || info.detail.original_title }
+                              <h1 className='text-2xl md:text-5xl font-bold '> 
+                                { info.detail.title || info.detail.original_name || info.detail.original_title }
 
-                                <small className='text-2xl text-zinc-200 font-bold ' >
+                                <small className=' text-lg md:text-2xl text-slate-200 font-bold ' >
                                     ({info.detail.first_air_date.split("-")[0]})
                                 </small>
                               </h1>
 
-                              <div className='flex items-center gap-x-5 gap-y-10 mt-3 mb-5  '>
+                              <div className=' w-[90%] flex items-center gap-x-3 gap-y-10  justify-start '>
 
-                                    <span className='z-40 text-white text-md overflow-hidden w-[6vh] h-[6vh] flex justify-center items-center bg-yellow-700 rounded-full font-semibold '>
+                                    <span className='z-40 text-white text-md overflow-hidden min-w-[6vh] min-h-[6vh] flex justify-center items-center bg-yellow-700 rounded-full font-semibold '>
                                         { (info.detail.vote_average* 10).toFixed() } <sup>%</sup>
                                     </span>
 
-                                  <h1 className='font-semibold text-2xl w-[60px] leading-6 '> Users Score </h1>
-                                  <h1 className=''> { info.detail.first_air_date } </h1>
-                                  <h1> { info.detail.genres.map( (g) => g.name ).join(",") } </h1>
-                                  {/* <h1> { info.detail.runtime} min </h1> */}
+                                  <h1 className='font-semibold text-base md:text-2xl leading-6 hidden md:inline-block'> Rating </h1>
+                                  <h3 className=''> { info.detail.first_air_date } </h3>
+                                  <h3> { info.detail.genres.map( (g) => g.name ).join(", ") } </h3>
 
                               </div>
 
@@ -112,12 +109,10 @@ function tvDetails() {
                                 </p>
                               </h1>
 
-                              <Link className='px-12 py-3 bg-slate-950 rounded-lg border hover:scale-110 duration-300 text-xl ' 
+                              <Link className='px-7 py-2 md:px-12 md:py-3 bg-slate-950 rounded-lg border hover:scale-110 duration-300 text-lg md:text-xl ' 
                                 to={`${pathname}/trailer`}>
                                     <i className="ri-play-circle-line"></i> Play Trailer
                               </Link>
-
-
 
                         </div>
 
@@ -125,13 +120,13 @@ function tvDetails() {
 
 
                     {/* card  */}
-                    <div className=' w-[80%] flex flex-col gap-y-5 font-semibold text-xl'>
+                    <div className=' w-[80%] flex flex-col mt-4 md:mt-7 gap-y-4 font-semibold text-lg md:text-xl'>
 
                               {
                                   info.watchProviders && info.watchProviders.flatrate && (
 
-                                    <div className='flex gap-x-10 items-center text-white  '>
-                                        <h1> Watch here : </h1>
+                                    <div className='flex gap-x-8 items-center text-white  '>
+                                        <h1> Watch on: </h1>
                                           {info.watchProviders.flatrate.map((data) => (
                                             <img key={Math.random()}
                                               title={data.provider_name}
@@ -186,7 +181,7 @@ function tvDetails() {
 
                   {/* part 4  */}
 
-                  <h1 className='text-3xl font-bold text-white mt-6 mb-3  '> Seasons : </h1>
+                  <h1 className=' text-xl md:text-3xl font-bold text-slate-300 mt-4 mb-2  '> Seasons : </h1>
                   {
                     info.detail.seasons ? 
                       <HorizontalCards data={ info.detail.seasons} /> 
@@ -194,18 +189,15 @@ function tvDetails() {
                   }
 
 
-
-
-
                    <Outlet />   
 
 
-                   <hr className='mt-10 ' />
+                   <hr className='mt-5 ' />
 
 
                   {/* part 5  */}
 
-                  <h1 className='text-3xl font-bold text-white mt-6 mb-3  '> Recommandations & Similar : </h1>
+                  <h1 className=' text-xl md:text-3xl font-bold text-slate-300 mt-4 mb-2  '> Recommandations & Similar : </h1>
                   <HorizontalCards data={ info.recommendations.length > 0 ? info.recommendations : info.similar } /> 
                     {/* {
                       info.recommendations ? info.recommendations : info.similar
