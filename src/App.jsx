@@ -17,6 +17,7 @@ import Loading from './components/templates/Loading';
 const Movies        = React.lazy(() => import('./components/templates/Movies'));
 const People        = React.lazy(() => import('./components/templates/People'));
 const Popular       = React.lazy(() => import('./components/templates/Popular'));
+const Connect       = React.lazy(() => import('./components/templates/Connect'));
 const TvShows       = React.lazy(() => import('./components/templates/TvShows'));
 const Trailer       = React.lazy(() => import('./components/templates/Trailer'));
 const NotFound      = React.lazy(() => import('./components/templates/NotFound'));
@@ -69,6 +70,8 @@ function App() {
                 <Route path='/tv/details/:id' element={ <TvDetails/> } >
                   <Route path='/tv/details/:id/trailer' element={<Trailer/>} />
                 </Route>
+
+                <Route path='/connect' element={<Connect/>} />
 
                 <Route path='*' element={<NotFound/>} />  
                   {/* wild card route with asterick, always in last.... */}

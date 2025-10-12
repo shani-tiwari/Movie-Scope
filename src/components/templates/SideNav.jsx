@@ -73,13 +73,13 @@ function SideNav() {
 
             <nav className='flex flex-col text-zinc-400 text-lg gap-3'>
 
-               <h1 className='text-white mt-10 font-semibold text-xl '> Website Information </h1>
-
+               <h1 className='text-white mt-10 font-semibold text-xl '> Developer Information </h1>
+{/* 
                <Link className='hover:bg-[#6556CD] hover:text-white hover:tracking-wider duration-300 p-3 rounded-xl '> 
                  <i className="hidden lg:inline-block ri-information-line mr-4 "></i>About
-               </Link>
+               </Link> */}
 
-               <Link className='hover:bg-[#6556CD] hover:text-white hover:tracking-wider duration-300 p-3 rounded-xl '> 
+               <Link to='/connect' className='hover:bg-[#6556CD] hover:text-white hover:tracking-wider duration-300 p-3 rounded-xl '> 
                  <i className="hidden lg:inline-block ri-phone-fill mr-2 "></i> Connect
                </Link>
 
