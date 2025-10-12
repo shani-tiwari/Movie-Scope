@@ -15,8 +15,9 @@ function VerticalCards({data, title}) {
                  className='relative flex flex-col max-[425px]:w-[80%] w-[30vh] mt-4 sm:min-w-[36vh] lg:min-w-[35vh] rounded px-1 duration-300 hover:shadow-[8px_17px_32px_2px_rgba(0,0,0,.5)] hover:scale-105 bg-slate-900 text-center border-b-2 border-t-2 ' >
 
                     <img 
-                     src={`https://image.tmdb.org/t/p/original/${ card.poster_path || card.backdrop_path || card.profile_path }`} 
+                     src={`https://image.tmdb.org/t/p/w300/${ card.poster_path || card.backdrop_path || card.profile_path }`} 
                      alt="loading.." 
+                     loading='lazy'
                      className='h-[32vh] object-fill rounded hover:shadow-[8px_17px_32px_2px_rgba(0,0,0,.5)] z-10 hover:scale-105 duration-300  '
                     />
 

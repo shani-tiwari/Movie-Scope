@@ -1,12 +1,22 @@
-import React from 'react';
-import axios from '../utils/axios';
-import Header from './templates/Header';
-import TopNav from './templates/TopNav';
-import SideNav from './templates/SideNav';
-import DropDown from './templates/DropDown';
 import { useState, useEffect } from 'react';
-import HorizontalCards from './templates/HorizontalCards';
 import Loading from './templates/Loading';
+import axios from '../utils/axios';
+
+// import Header from './templates/Header';
+// import TopNav from './templates/TopNav';
+// import SideNav from './templates/SideNav';
+// import DropDown from './templates/DropDown';
+// import HorizontalCards from './templates/HorizontalCards';
+
+import React, { Suspense } from 'react';
+
+// Lazy imports for components
+const Header          = React.lazy(() => import('./templates/Header'));
+const TopNav          = React.lazy(() => import('./templates/TopNav'));
+const SideNav         = React.lazy(() => import('./templates/SideNav'));
+const DropDown        = React.lazy(() => import('./templates/DropDown'));
+const HorizontalCards = React.lazy(() => import('./templates/HorizontalCards'));
+
 
 function Home() {
 
@@ -55,21 +65,23 @@ function Home() {
   return wallpaper && trending ?  (
 
     <>
-        <SideNav/>
+      <Suspense fallback={<Loading/>}>
+          <SideNav/>
 
-        <div className='w-full  lg:w-[82%] h-full bg-slate-950 overflow-y-auto overflow-x-hidden select-none'> 
-            <TopNav/>
+          <div className='w-full  lg:w-[82%] h-full bg-slate-950 overflow-y-auto overflow-x-hidden select-none'> 
+              <TopNav/>
 
-            <Header data={wallpaper} />
+              <Header data={wallpaper} />
 
-              <div className='p-3 flex justify-between '>
-                <h1 className=' text-2xl md:text-3xl text-zinc-300 font-semibold '> Trending </h1>   
-                <DropDown title="All" func={(e) => setFilterCategory(e.target.value)} options={['all', 'tv', 'movie']} />
-              </div>
+                <div className='p-3 flex justify-between '>
+                  <h1 className=' text-2xl md:text-3xl text-zinc-300 font-semibold '> Trending </h1>   
+                  <DropDown title="All" func={(e) => setFilterCategory(e.target.value)} options={['all', 'tv', 'movie']} />
+                </div>
 
-            <HorizontalCards data={trending} />
+              <HorizontalCards data={trending} />
 
-        </div>
+          </div>
+      </Suspense>
     </>
               
   ) : <Loading/>

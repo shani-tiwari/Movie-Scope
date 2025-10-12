@@ -15,9 +15,10 @@ function HorizontalCards( {data} ) {
 
                                 <img 
                                   src={
-                                        card.poster_path ?`https://image.tmdb.org/t/p/original/${card.poster_path }` : noImage
+                                        card.poster_path ?`https://image.tmdb.org/t/p/w300/${card.poster_path }` : noImage
                                   } 
                                  alt="loading..."
+                                 loading='lazy'
                                  className='w-full h-full object-top object-fill rounded hover:scale-105 duration-300 ' />
                             </Link>
 
