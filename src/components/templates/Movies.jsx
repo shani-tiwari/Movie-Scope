@@ -16,7 +16,6 @@ function Movies() {
     const [page, setPage]         = useState(1);
     const [movies, setMovies]   = useState([]);
     const [category, setCategory] = useState('now_playing'); 
-    // const [duration, setDuration] = useState("day");
     const [HasMore, setHasMore]   = useState(true);
     
 
@@ -70,33 +69,23 @@ function Movies() {
 
   return movies.length > 0 ? 
     (
-      <div className='w-screen p-[2%] select-none '>
+      <div className='w-screen p-[2%] select-none flex flex-col items-center '>
 
-          <div className='w-full flex justify-between '>
+          <div className='w-[90%]  fixed z-50 flex justify-between items-center rounded-full backdrop-blur-sm shadow-md shadow-slate-500 px-4 py-1 '>
 
-              {/* <Link onClick={()=> navigate(-1)}></Link> */}
-              <h1 className='text-3xl text-zinc-300 font-semibold mt-2 border-b-2 '>
+              <h1 className='text-xl md:text-3xl text-zinc-300  '>
                   <i 
                    onClick={()=> navigate(-1)}
-                   className=" text-zinc-300 text-3xl hover:text-[#6556CD] duration-300 ri-arrow-left-circle-line mr-4 shadow-white ">                    
+                   className=" text-zinc-300 text-xl md:text-3xl hover:text-[#6556CD] duration-300 ri-arrow-left-circle-line mr-4 shadow-white ">                    
                   </i>
-                  Movies <sup className='text-xs text-zinc-500 '>({category})</sup>
+                  Movies 
               </h1>
 
-              <div className='flex w-[70%] items-center m-0 z-20' >
+              <div className=' w-[60%]  flex justify-end ' >
 
-                  <TopNav/>
-
-                      {/*  array elems should be in lowercase, coz they will add in api to call and filter data */}
                   <DropDown title='movies' options={['now_playing', 'upcoming', 'popular', 'top_rated']} 
                    func={ (e)=> setCategory(e.target.value)}
                   />
-
-                  {/* <div className='w-[2%]'></div> */}
-
-                  {/* <DropDown title="category" options={['day', "week"]} 
-                   func={ (e)=> setDuration(e.target.value)}
-                  /> */}
               </div>
 
           </div>

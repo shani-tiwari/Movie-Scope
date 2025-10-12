@@ -32,7 +32,7 @@ function SideNav() {
              </button>
            </div>
 
-        <div className={` w-[18%] h-full sm:hidden lg:block border-r-2 border-zinc-400 p-5 select-none ${isToggled? 'md:inline-block inline-block w-60' : 'hidden'} `}>
+        <div className={` w-[18%] h-full sm:hidden lg:block border-r-2 border-zinc-400 p-5 select-none ${isToggled? 'md:inline-block inline-block min-w-60' : 'hidden'} `}>
 
 
             <h1 className='hidden lg:block text-emerald-700 text-2xl font-semibold '> 
